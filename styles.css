@@ -1,0 +1,137 @@
+/* ═══════════════════════════════════════════════
+   ŠvaraPlus — Custom Styles
+   Tailwind handles most styling via CDN.
+   This file adds animations, utilities, and polish.
+   ═══════════════════════════════════════════════ */
+
+/* ── Smooth scroll ── */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+/* ── Alpine.js cloak ── */
+[x-cloak] {
+    display: none !important;
+}
+
+/* ── Selection color ── */
+::selection {
+    background-color: #4A7043;
+    color: white;
+}
+
+/* ── Body base ── */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scroll-triggered fade-in animation ── */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children */
+.fade-in-up.visible:nth-child(1) { transition-delay: 0ms; }
+.fade-in-up.visible:nth-child(2) { transition-delay: 100ms; }
+.fade-in-up.visible:nth-child(3) { transition-delay: 200ms; }
+.fade-in-up.visible:nth-child(4) { transition-delay: 300ms; }
+.fade-in-up.visible:nth-child(5) { transition-delay: 400ms; }
+.fade-in-up.visible:nth-child(6) { transition-delay: 500ms; }
+
+/* ── WhatsApp pulse ring ── */
+@keyframes wa-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.fixed[aria-label="Rašyti WhatsApp"] {
+    animation: wa-pulse 2s infinite;
+}
+
+/* ── Hero parallax-lite overlay ── */
+@keyframes hero-shimmer {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+}
+
+/* ── Gallery hover zoom ── */
+.group:hover img {
+    will-change: transform;
+}
+
+/* ── Form focus glow ── */
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(74, 112, 67, 0.15);
+}
+
+/* ── Service card icon transition ── */
+.group:hover .group-hover\:bg-sage-500 i,
+.group:hover .group-hover\:text-white {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f4f7f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a8c2a5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4A7043;
+}
+
+/* ── Alpine x-collapse transition ── */
+[x-collapse] {
+    overflow: hidden;
+}
+
+/* ── Mobile nav body lock ── */
+body.nav-open {
+    overflow: hidden;
+}
+
+/* ── Responsive image safety ── */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Print styles ── */
+@media print {
+    .fixed,
+    nav {
+        display: none !important;
+    }
+    body {
+        font-size: 12pt;
+    }
+    section {
+        page-break-inside: avoid;
+    }
+}
