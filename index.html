@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="lt" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Profesionalus butų, namų ir Airbnb valymas Vilniuje. Patikimos valytojos, greitas atsakymas, kokybės garantija.">
-    <meta name="keywords" content="valymas, butų valymas, namų valymas, Airbnb valymas, generalinis valymas, reguliarus valymas, Vilnius">
+    <meta name="description"
+        content="Profesionalus butų, namų ir Airbnb valymas Vilniuje. Patikimos valytojos, greitas atsakymas, kokybės garantija.">
+    <meta name="keywords"
+        content="valymas, butų valymas, namų valymas, Airbnb valymas, generalinis valymas, reguliarus valymas, Vilnius">
     <title>ŠvaraPlus — Profesionalus valymo paslaugos Vilniuje</title>
 
     <!-- Tailwind CSS CDN -->
@@ -56,7 +59,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -64,19 +69,21 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="font-sans text-gray-800 bg-white antialiased" x-data="app()">
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- NAVIGATION                                  -->
     <!-- ═══════════════════════════════════════════ -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-         :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'"
-         @scroll.window="scrolled = (window.scrollY > 50)">
+        :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'"
+        @scroll.window="scrolled = (window.scrollY > 50)">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 bg-sage-500 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+                    <div
+                        class="w-9 h-9 bg-sage-500 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
                         <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
                     </div>
                     <span class="text-xl font-display font-bold" :class="scrolled ? 'text-gray-900' : 'text-white'">
@@ -87,22 +94,22 @@
                 <!-- Desktop Nav -->
                 <div class="hidden lg:flex items-center gap-8">
                     <a href="#paslaugos" class="text-sm font-medium transition-colors hover:text-sage-500"
-                       :class="scrolled ? 'text-gray-600' : 'text-white/90'">Paslaugos</a>
+                        :class="scrolled ? 'text-gray-600' : 'text-white/90'">Paslaugos</a>
                     <a href="#kaip-veikia" class="text-sm font-medium transition-colors hover:text-sage-500"
-                       :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kaip veikia</a>
+                        :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kaip veikia</a>
                     <a href="#kodel-mes" class="text-sm font-medium transition-colors hover:text-sage-500"
-                       :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kodėl mes</a>
+                        :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kodėl mes</a>
                     <a href="#atsiliepimai" class="text-sm font-medium transition-colors hover:text-sage-500"
-                       :class="scrolled ? 'text-gray-600' : 'text-white/90'">Atsiliepimai</a>
+                        :class="scrolled ? 'text-gray-600' : 'text-white/90'">Atsiliepimai</a>
                     <a href="#kontaktai"
-                       class="bg-sage-500 hover:bg-sage-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-sage-500/25">
+                        class="bg-sage-500 hover:bg-sage-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-sage-500/25">
                         Gauti kainą
                     </a>
                 </div>
 
                 <!-- Mobile menu button -->
                 <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 rounded-lg"
-                        :class="scrolled ? 'text-gray-700' : 'text-white'">
+                    :class="scrolled ? 'text-gray-700' : 'text-white'">
                     <i data-lucide="menu" x-show="!mobileMenu" class="w-6 h-6"></i>
                     <i data-lucide="x" x-show="mobileMenu" class="w-6 h-6" x-cloak></i>
                 </button>
@@ -111,19 +118,22 @@
 
         <!-- Mobile menu -->
         <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-2"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-2"
-             class="lg:hidden bg-white border-t shadow-lg" x-cloak>
+            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2" class="lg:hidden bg-white border-t shadow-lg" x-cloak>
             <div class="px-4 py-4 space-y-2">
-                <a @click="mobileMenu = false" href="#paslaugos" class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Paslaugos</a>
-                <a @click="mobileMenu = false" href="#kaip-veikia" class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Kaip veikia</a>
-                <a @click="mobileMenu = false" href="#kodel-mes" class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Kodėl mes</a>
-                <a @click="mobileMenu = false" href="#atsiliepimai" class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Atsiliepimai</a>
+                <a @click="mobileMenu = false" href="#paslaugos"
+                    class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Paslaugos</a>
+                <a @click="mobileMenu = false" href="#kaip-veikia"
+                    class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Kaip
+                    veikia</a>
+                <a @click="mobileMenu = false" href="#kodel-mes"
+                    class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Kodėl
+                    mes</a>
+                <a @click="mobileMenu = false" href="#atsiliepimai"
+                    class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Atsiliepimai</a>
                 <a @click="mobileMenu = false" href="#kontaktai"
-                   class="block text-center bg-sage-500 hover:bg-sage-600 text-white font-semibold px-5 py-3 rounded-full mt-3">
+                    class="block text-center bg-sage-500 hover:bg-sage-600 text-white font-semibold px-5 py-3 rounded-full mt-3">
                     Gauti kainą
                 </a>
             </div>
@@ -137,15 +147,15 @@
         <!-- Background image -->
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80"
-                 alt="Švarus, tvarkingas kambarys"
-                 class="w-full h-full object-cover">
+                alt="Švarus, tvarkingas kambarys" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/40"></div>
         </div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
             <div class="max-w-2xl">
                 <!-- Badge -->
-                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+                <div
+                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
                     <i data-lucide="map-pin" class="w-4 h-4"></i>
                     Vilnius
                 </div>
@@ -156,20 +166,23 @@
                 </h1>
 
                 <p class="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-xl">
-                    Koordinuojame patikimas valytojas butų, namų, biurų ir Airbnb objektų valymui. 
+                    Koordinuojame patikimas valytojas butų, namų, biurų ir Airbnb objektų valymui.
                     Jūs tiesiog užsakote — mes pasirūpiname viskuo.
                 </p>
 
                 <!-- CTA buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
                     <a href="https://wa.me/37068564040?text=Sveiki,%20norėčiau%20sužinoti%20valymo%20kainą"
-                       target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-7 py-4 rounded-full text-lg transition-all hover:shadow-xl hover:shadow-green-500/30 hover:-translate-y-0.5">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-7 py-4 rounded-full text-lg transition-all hover:shadow-xl hover:shadow-green-500/30 hover:-translate-y-0.5">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
                         Rašyti WhatsApp
                     </a>
                     <a href="#kontaktai"
-                       class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-4 rounded-full text-lg transition-all hover:-translate-y-0.5">
+                        class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-4 rounded-full text-lg transition-all hover:-translate-y-0.5">
                         <i data-lucide="calculator" class="w-5 h-5"></i>
                         Gauti nemokamą įvertinimą
                     </a>
@@ -184,10 +197,6 @@
                     <div class="flex items-center gap-2">
                         <i data-lucide="clock" class="w-4 h-4 text-sage-400"></i>
                         Atsakome per 1 val.
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="star" class="w-4 h-4 text-sage-400"></i>
-                        100+ patenkintų klientų
                     </div>
                 </div>
             </div>
@@ -206,7 +215,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section header -->
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Mūsų paslaugos</span>
+                <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Mūsų
+                    paslaugos</span>
                 <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
                     Valymo sprendimai kiekvienam poreikiui
                 </h2>
@@ -219,51 +229,67 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
                 <!-- Card 1: Generalinis valymas -->
-                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
-                        <i data-lucide="home" class="w-7 h-7 text-sage-600 group-hover:text-white transition-colors"></i>
+                <div
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
+                        <i data-lucide="home"
+                            class="w-7 h-7 text-sage-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Generalinis valymas</h3>
-                    <p class="text-gray-500 mb-4 leading-relaxed">Nuodugnus butų ir namų valymas — kiekvienas kampas, paviršius ir detalė. Idealus persikraustant arba prieš šventes.</p>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Nuodugnus butų ir namų valymas — kiekvienas kampas,
+                        paviršius ir detalė. Idealus persikraustant arba prieš šventes.</p>
                     <div class="flex items-baseline gap-1 mb-5">
                         <span class="text-sm text-gray-400">nuo</span>
                         <span class="text-2xl font-bold text-sage-600">80 €</span>
                     </div>
-                    <a href="#kontaktai" class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
+                    <a href="#kontaktai"
+                        class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
                         Užsakyti dabar <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Card 2: Airbnb / trumpalaikė nuoma -->
-                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1 relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-sage-500 text-white text-xs font-bold px-3 py-1 rounded-full">Populiaru</div>
-                    <div class="w-14 h-14 bg-softblue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
-                        <i data-lucide="key-round" class="w-7 h-7 text-softblue-400 group-hover:text-white transition-colors"></i>
+                <div
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-sage-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        Populiaru</div>
+                    <div
+                        class="w-14 h-14 bg-softblue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
+                        <i data-lucide="key-round"
+                            class="w-7 h-7 text-softblue-400 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Airbnb valymas</h3>
-                    <p class="text-gray-500 mb-4 leading-relaxed">Greitas ir kruopštus valymas tarp svečių. Patalynės keitimas, tvarkinga virtuvė, šviežias kvapas.</p>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Greitas ir kruopštus valymas tarp svečių. Patalynės
+                        keitimas, tvarkinga virtuvė, šviežias kvapas.</p>
                     <div class="flex items-baseline gap-1 mb-5">
                         <span class="text-sm text-gray-400">nuo</span>
                         <span class="text-2xl font-bold text-sage-600">50 €</span>
                     </div>
-                    <a href="#kontaktai" class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
+                    <a href="#kontaktai"
+                        class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
                         Užsakyti dabar <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Card 4: Reguliarus valymas -->
-                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
-                        <i data-lucide="calendar-check" class="w-7 h-7 text-sage-600 group-hover:text-white transition-colors"></i>
+                <div
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
+                    <div
+                        class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
+                        <i data-lucide="calendar-check"
+                            class="w-7 h-7 text-sage-600 group-hover:text-white transition-colors"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Savaitinis / mėnesinis valymas</h3>
-                    <p class="text-gray-500 mb-4 leading-relaxed">Reguliarus namų palaikymas — ta pati patikima valytoja kiekvieną kartą. Lankstus grafikas.</p>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Reguliarus namų palaikymas — ta pati patikima valytoja
+                        kiekvieną kartą. Lankstus grafikas.</p>
                     <div class="flex items-baseline gap-1 mb-5">
                         <span class="text-sm text-gray-400">nuo</span>
                         <span class="text-2xl font-bold text-sage-600">45 €</span>
                         <span class="text-sm text-gray-400">/ vizitas</span>
                     </div>
-                    <a href="#kontaktai" class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
+                    <a href="#kontaktai"
+                        class="inline-flex items-center gap-1 text-sage-600 font-semibold text-sm hover:gap-2 transition-all">
                         Užsakyti dabar <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -271,11 +297,15 @@
                 <!-- CTA Card -->
                 <div class="bg-sage-500 rounded-2xl p-8 flex flex-col justify-center text-white">
                     <h3 class="text-xl font-bold mb-3">Nežinote, ko reikia?</h3>
-                    <p class="text-white/80 mb-6 leading-relaxed">Parašykite mums — padėsime parinkti tinkamiausią paslaugą ir pasiūlysime geriausią kainą.</p>
+                    <p class="text-white/80 mb-6 leading-relaxed">Parašykite mums — padėsime parinkti tinkamiausią
+                        paslaugą ir pasiūlysime geriausią kainą.</p>
                     <a href="https://wa.me/37068564040?text=Sveiki,%20norėčiau%20sužinoti%20apie%20valymo%20paslaugas"
-                       target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center gap-2 bg-white text-sage-700 font-semibold px-6 py-3 rounded-full hover:bg-sage-50 transition-colors w-fit">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 bg-white text-sage-700 font-semibold px-6 py-3 rounded-full hover:bg-sage-50 transition-colors w-fit">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
                         Konsultacija WhatsApp
                     </a>
                 </div>
@@ -290,7 +320,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section header -->
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Paprastas procesas</span>
+                <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Paprastas
+                    procesas</span>
                 <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
                     Kaip tai veikia?
                 </h2>
@@ -303,58 +334,78 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
                 <!-- Step 1 -->
                 <div class="text-center relative">
-                    <div class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
+                    <div
+                        class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="message-circle" class="w-8 h-8 text-sage-600"></i>
-                        <span class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">1</span>
+                        <span
+                            class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">1</span>
                     </div>
                     <!-- Connector line (hidden on mobile / last item) -->
-                    <div class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200"></div>
+                    <div
+                        class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200">
+                    </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">Parašykite mums</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">WhatsApp žinutė arba užpildykite formą — atsakome per 1 val.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">WhatsApp žinutė arba užpildykite formą — atsakome
+                        per 1 val.</p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="text-center relative">
-                    <div class="w-16 h-16 bg-beige-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
+                    <div
+                        class="w-16 h-16 bg-beige-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="calculator" class="w-8 h-8 text-amber-600"></i>
-                        <span class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">2</span>
+                        <span
+                            class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">2</span>
                     </div>
-                    <div class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200"></div>
+                    <div
+                        class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200">
+                    </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">Gausite kainą</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Įvertiname plotą, paslaugos tipą ir pateikiame tikslią kainą be paslėptų mokesčių.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Įvertiname plotą, paslaugos tipą ir pateikiame
+                        tikslią kainą be paslėptų mokesčių.</p>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="text-center relative">
-                    <div class="w-16 h-16 bg-softblue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
+                    <div
+                        class="w-16 h-16 bg-softblue-50 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="credit-card" class="w-8 h-8 text-softblue-400"></i>
-                        <span class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">3</span>
+                        <span
+                            class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">3</span>
                     </div>
-                    <div class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200"></div>
+                    <div
+                        class="hidden lg:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-sage-200">
+                    </div>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">Apmokate paslaugą</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Pilna suma per Paysera arba bankiniu pavedimu — paprasta ir saugu.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Pilna suma per Paysera arba bankiniu pavedimu —
+                        paprasta ir saugu.</p>
                 </div>
 
                 <!-- Step 4 -->
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
+                    <div
+                        class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="sparkles" class="w-8 h-8 text-sage-600"></i>
-                        <span class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">4</span>
+                        <span
+                            class="absolute -top-2 -right-2 w-7 h-7 bg-sage-500 text-white text-xs font-bold rounded-full flex items-center justify-center">4</span>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-2">Džiaukitės švarai!</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Valytoja atvyksta sutartu laiku. Po darbo — before/after nuotraukos jūsų ramybei.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Džiaukitės nepriekaištinga švara!</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Valytoja atvyksta sutartu laiku. Po darbo —
+                        before/after nuotraukos jūsų ramybei.</p>
                 </div>
             </div>
 
             <!-- Payment explanation -->
-            <div class="mt-16 bg-beige-50 border border-beige-200 rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center gap-6">
+            <div
+                class="mt-16 bg-beige-50 border border-beige-200 rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center gap-6">
                 <div class="w-14 h-14 bg-beige-200 rounded-xl flex items-center justify-center shrink-0">
                     <i data-lucide="shield" class="w-7 h-7 text-amber-700"></i>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-gray-900 mb-1">Kaip vyksta apmokėjimas?</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Visa suma apmokama prieš valymą — tai užtikrina, kad valytoja rezervuos jums konkretų laiką ir atvyks kaip sutarta. 
+                        Visa suma apmokama prieš valymą — tai užtikrina, kad valytoja rezervuos jums konkretų laiką ir
+                        atvyks kaip sutarta.
                         Mokėti galite per <strong>Paysera</strong> arba bankiniu pavedimu — paprasta ir saugu.
                     </p>
                 </div>
@@ -371,25 +422,14 @@
                 <!-- Left: Image -->
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80"
-                         alt="Profesionali valytoja darbo metu"
-                         class="rounded-2xl shadow-xl w-full object-cover aspect-[4/3]">
-                    <!-- Floating stat card -->
-                    <div class="absolute -bottom-6 -right-4 sm:right-6 bg-white rounded-xl shadow-lg p-5 border border-gray-100">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="trending-up" class="w-6 h-6 text-sage-600"></i>
-                            </div>
-                            <div>
-                                <p class="text-2xl font-bold text-gray-900">100+</p>
-                                <p class="text-sm text-gray-500">patenkintų klientų</p>
-                            </div>
-                        </div>
-                    </div>
+                        alt="Profesionali valytoja darbo metu"
+                        class="rounded-2xl shadow-xl w-full object-cover aspect-[4/3]">
                 </div>
 
                 <!-- Right: Content -->
                 <div>
-                    <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Kodėl ŠvaraPlus?</span>
+                    <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Kodėl
+                        ŠvaraPlus?</span>
                     <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-8">
                         Patikimumas, kurį jaučiate nuo pirmo kontakto
                     </h2>
@@ -402,7 +442,8 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Patikrintos valytojos</h3>
-                                <p class="text-gray-500 text-sm leading-relaxed">Kiekviena valytoja kruopščiai atrinkta ir patikrinta. Dirbame tik su atsakingomis, patirtį turinčiomis specialistėmis.</p>
+                                <p class="text-gray-500 text-sm leading-relaxed">Kiekviena valytoja kruopščiai atrinkta
+                                    ir patikrinta. Dirbame tik su atsakingomis, patirtį turinčiomis specialistėmis.</p>
                             </div>
                         </div>
 
@@ -413,7 +454,8 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Apmokėjimas iš anksto</h3>
-                                <p class="text-gray-500 text-sm leading-relaxed">Mokate visą sumą prieš valymą — aiškus ir paprastas procesas. Jokių netikėtumų.</p>
+                                <p class="text-gray-500 text-sm leading-relaxed">Mokate visą sumą prieš valymą — aiškus
+                                    ir paprastas procesas. Jokių netikėtumų.</p>
                             </div>
                         </div>
 
@@ -424,7 +466,8 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Before & After nuotraukos</h3>
-                                <p class="text-gray-500 text-sm leading-relaxed">Kiekvieno valymo metu fotografuojame prieš ir po — matote tikslų rezultatą ir kokybės garantiją.</p>
+                                <p class="text-gray-500 text-sm leading-relaxed">Kiekvieno valymo metu fotografuojame
+                                    prieš ir po — matote tikslų rezultatą ir kokybės garantiją.</p>
                             </div>
                         </div>
 
@@ -435,7 +478,8 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-1">Greitas atsakymas</h3>
-                                <p class="text-gray-500 text-sm leading-relaxed">Rašykite bet kuriuo metu — atsakome per 1 valandą ir suderinime viską greitai bei patogiai.</p>
+                                <p class="text-gray-500 text-sm leading-relaxed">Rašykite bet kuriuo metu — atsakome per
+                                    1 valandą ir suderinime viską greitai bei patogiai.</p>
                             </div>
                         </div>
                     </div>
@@ -450,7 +494,8 @@
     <section id="atsiliepimai" class="py-20 lg:py-28 bg-sage-50/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Atsiliepimai</span>
+                <span
+                    class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Atsiliepimai</span>
                 <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
                     Ką sako mūsų klientai
                 </h2>
@@ -467,7 +512,8 @@
                         <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Nuostabus darbas! Butas po remonto atrodė baisiai, bet po valymo — kaip naujas. Labai rekomenduoju, profesionalios valytojos."
+                        „Nuostabus darbas! Butas po remonto atrodė baisiai, bet po valymo — kaip naujas. Labai
+                        rekomenduoju, profesionalios valytojos."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center">
@@ -490,7 +536,8 @@
                         <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Naudoju Airbnb valymo paslaugą jau 3 mėnesius. Visada laiku, visada švariai. Svečiai nuolat giria švarą — tai pagerina mano reitingą!"
+                        „Naudoju Airbnb valymo paslaugą jau 3 mėnesius. Visada laiku, visada švariai. Svečiai nuolat
+                        giria švarą — tai pagerina mano reitingą!"
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-softblue-100 rounded-full flex items-center justify-center">
@@ -513,7 +560,8 @@
                         <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Su mažais vaikais namuose tiesiog nespėju tvarkyti. Savaitinis valymas — geriausias mano sprendimas. Visada ta pati valytoja, labai malonu."
+                        „Su mažais vaikais namuose tiesiog nespėju tvarkyti. Savaitinis valymas — geriausias mano
+                        sprendimas. Visada ta pati valytoja, labai malonu."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-beige-200 rounded-full flex items-center justify-center">
@@ -536,7 +584,8 @@
                         <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
                     </div>
                     <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Biuro valymas kas savaitę — tvarkinga darbo aplinka motyvuoja komandą. Puikus kainos ir kokybės santykis. Patogus mokėjimas."
+                        „Biuro valymas kas savaitę — tvarkinga darbo aplinka motyvuoja komandą. Puikus kainos ir kokybės
+                        santykis. Patogus mokėjimas."
                     </p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center">
@@ -560,7 +609,8 @@
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 <!-- Left: Form -->
                 <div>
-                    <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Susisiekite</span>
+                    <span
+                        class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Susisiekite</span>
                     <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
                         Gaukite nemokamą įvertinimą
                     </h2>
@@ -571,23 +621,26 @@
                     <form @submit.prevent="submitForm()" class="space-y-5">
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Vardas *</label>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Vardas
+                                    *</label>
                                 <input type="text" id="name" x-model="form.name" required
-                                       class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400"
-                                       placeholder="Jūsų vardas">
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400"
+                                    placeholder="Jūsų vardas">
                             </div>
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefonas *</label>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefonas
+                                    *</label>
                                 <input type="tel" id="phone" x-model="form.phone" required
-                                       class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400"
-                                       placeholder="+370 6XX XXXXX">
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400"
+                                    placeholder="+370 6XX XXXXX">
                             </div>
                         </div>
 
                         <div>
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1.5">Paslauga *</label>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1.5">Paslauga
+                                *</label>
                             <select id="service" x-model="form.service" required
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 bg-white">
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 bg-white">
                                 <option value="">Pasirinkite paslaugą</option>
                                 <option value="generalinis">Generalinis valymas</option>
                                 <option value="airbnb">Airbnb valymas</option>
@@ -598,22 +651,22 @@
                         <div>
                             <label for="city" class="block text-sm font-medium text-gray-700 mb-1.5">Miestas *</label>
                             <select id="city" x-model="form.city" required
-                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 bg-white">
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 bg-white">
                                 <option value="">Pasirinkite miestą</option>
                                 <option value="vilnius">Vilnius</option>
                             </select>
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Papildoma informacija</label>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Papildoma
+                                informacija</label>
                             <textarea id="message" x-model="form.message" rows="3"
-                                      class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"
-                                      placeholder="Patalpų plotas, pageidavimai, data..."></textarea>
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage-500 focus:ring-2 focus:ring-sage-500/20 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"
+                                placeholder="Patalpų plotas, pageidavimai, data..."></textarea>
                         </div>
 
-                        <button type="submit"
-                                :disabled="formSubmitting"
-                                class="w-full bg-sage-500 hover:bg-sage-600 disabled:bg-sage-300 text-white font-semibold py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-sage-500/25 flex items-center justify-center gap-2">
+                        <button type="submit" :disabled="formSubmitting"
+                            class="w-full bg-sage-500 hover:bg-sage-600 disabled:bg-sage-300 text-white font-semibold py-4 rounded-full text-lg transition-all hover:shadow-lg hover:shadow-sage-500/25 flex items-center justify-center gap-2">
                             <template x-if="!formSubmitting && !formSubmitted">
                                 <span class="flex items-center gap-2">
                                     <i data-lucide="send" class="w-5 h-5"></i>
@@ -639,17 +692,23 @@
                         <h3 class="text-xl font-bold text-gray-900 mb-6">Susisiekite tiesiogiai</h3>
                         <div class="space-y-5">
                             <a href="https://wa.me/37068564040" target="_blank" rel="noopener noreferrer"
-                               class="flex items-center gap-4 text-gray-700 hover:text-sage-600 transition-colors group">
-                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-green-200 transition-colors">
-                                    <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                class="flex items-center gap-4 text-gray-700 hover:text-sage-600 transition-colors group">
+                                <div
+                                    class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                                    <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <p class="font-semibold">WhatsApp</p>
                                     <p class="text-sm text-gray-500">+370 685 64040</p>
                                 </div>
                             </a>
-                            <a href="tel:+37068564040" class="flex items-center gap-4 text-gray-700 hover:text-sage-600 transition-colors group">
-                                <div class="w-12 h-12 bg-sage-100 rounded-xl flex items-center justify-center group-hover:bg-sage-200 transition-colors">
+                            <a href="tel:+37068564040"
+                                class="flex items-center gap-4 text-gray-700 hover:text-sage-600 transition-colors group">
+                                <div
+                                    class="w-12 h-12 bg-sage-100 rounded-xl flex items-center justify-center group-hover:bg-sage-200 transition-colors">
                                     <i data-lucide="phone" class="w-6 h-6 text-sage-600"></i>
                                 </div>
                                 <div>
@@ -687,11 +746,21 @@
                         Profesionalus valymo paslaugų koordinavimas Vilniuje.
                     </p>
                     <div class="flex gap-3">
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-sage-500 rounded-lg flex items-center justify-center transition-colors" aria-label="Facebook">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 hover:bg-sage-500 rounded-lg flex items-center justify-center transition-colors"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-sage-500 rounded-lg flex items-center justify-center transition-colors" aria-label="Instagram">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 hover:bg-sage-500 rounded-lg flex items-center justify-center transition-colors"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -700,10 +769,14 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Nuorodos</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#paslaugos" class="text-gray-400 hover:text-sage-400 transition-colors">Paslaugos</a></li>
-                        <li><a href="#kaip-veikia" class="text-gray-400 hover:text-sage-400 transition-colors">Kaip veikia</a></li>
-                        <li><a href="#kodel-mes" class="text-gray-400 hover:text-sage-400 transition-colors">Kodėl mes</a></li>
-                        <li><a href="#atsiliepimai" class="text-gray-400 hover:text-sage-400 transition-colors">Atsiliepimai</a></li>
+                        <li><a href="#paslaugos"
+                                class="text-gray-400 hover:text-sage-400 transition-colors">Paslaugos</a></li>
+                        <li><a href="#kaip-veikia" class="text-gray-400 hover:text-sage-400 transition-colors">Kaip
+                                veikia</a></li>
+                        <li><a href="#kodel-mes" class="text-gray-400 hover:text-sage-400 transition-colors">Kodėl
+                                mes</a></li>
+                        <li><a href="#atsiliepimai"
+                                class="text-gray-400 hover:text-sage-400 transition-colors">Atsiliepimai</a></li>
                     </ul>
                 </div>
 
@@ -711,9 +784,12 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Paslaugos</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Generalinis valymas</a></li>
-                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Airbnb valymas</a></li>
-                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Savaitinis / mėnesinis valymas</a></li>
+                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Generalinis
+                                valymas</a></li>
+                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Airbnb
+                                valymas</a></li>
+                        <li><a href="#kontaktai" class="text-gray-400 hover:text-sage-400 transition-colors">Savaitinis
+                                / mėnesinis valymas</a></li>
                     </ul>
                 </div>
 
@@ -723,7 +799,8 @@
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center gap-2">
                             <i data-lucide="phone" class="w-4 h-4 text-sage-400"></i>
-                            <a href="tel:+37068564040" class="text-gray-400 hover:text-sage-400 transition-colors">+370 685 64040</a>
+                            <a href="tel:+37068564040" class="text-gray-400 hover:text-sage-400 transition-colors">+370
+                                685 64040</a>
                         </li>
                         <li class="flex items-center gap-2">
                             <i data-lucide="map-pin" class="w-4 h-4 text-sage-400"></i>
@@ -736,7 +813,8 @@
 
         <!-- Bottom bar -->
         <div class="border-t border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-gray-500 text-sm">&copy; 2026 ŠvaraPlus. Visos teisės saugomos.</p>
                 <div class="flex gap-6 text-sm">
                     <a href="#" class="text-gray-500 hover:text-gray-400 transition-colors">Privatumo politika</a>
@@ -749,15 +827,17 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- FLOATING WHATSAPP BUTTON                    -->
     <!-- ═══════════════════════════════════════════ -->
-    <a href="https://wa.me/37068564040?text=Sveiki,%20norėčiau%20sužinoti%20valymo%20kainą"
-       target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:scale-110 group"
-       aria-label="Rašyti WhatsApp">
+    <a href="https://wa.me/37068564040?text=Sveiki,%20norėčiau%20sužinoti%20valymo%20kainą" target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:scale-110 group"
+        aria-label="Rašyti WhatsApp">
         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
         <!-- Tooltip -->
-        <span class="absolute right-20 bg-white text-gray-800 text-sm font-medium px-4 py-2 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <span
+            class="absolute right-20 bg-white text-gray-800 text-sm font-medium px-4 py-2 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             Rašykite mums! 💬
         </span>
     </a>
@@ -765,4 +845,5 @@
     <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
+
 </html>
