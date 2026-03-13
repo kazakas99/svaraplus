@@ -46,7 +46,7 @@ function app() {
                 );
 
                 // Open WhatsApp with pre-filled message
-                window.open(`https://wa.me/37068564040?text=${msg}`, '_blank');
+                window.open(`https://wa.me/37063013887?text=${msg}`, '_blank');
 
                 // Reset form after delay
                 setTimeout(() => {
