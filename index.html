@@ -99,8 +99,6 @@
                         :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kaip veikia</a>
                     <a href="#kodel-mes" class="text-sm font-medium transition-colors hover:text-sage-500"
                         :class="scrolled ? 'text-gray-600' : 'text-white/90'">Kodėl mes</a>
-                    <a href="#atsiliepimai" class="text-sm font-medium transition-colors hover:text-sage-500"
-                        :class="scrolled ? 'text-gray-600' : 'text-white/90'">Atsiliepimai</a>
                     <a href="#kontaktai"
                         class="bg-sage-500 hover:bg-sage-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-sage-500/25">
                         Gauti kainą
@@ -130,8 +128,6 @@
                 <a @click="mobileMenu = false" href="#kodel-mes"
                     class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Kodėl
                     mes</a>
-                <a @click="mobileMenu = false" href="#atsiliepimai"
-                    class="block px-4 py-2.5 rounded-lg text-gray-700 hover:bg-sage-50 hover:text-sage-600 font-medium">Atsiliepimai</a>
                 <a @click="mobileMenu = false" href="#kontaktai"
                     class="block text-center bg-sage-500 hover:bg-sage-600 text-white font-semibold px-5 py-3 rounded-full mt-3">
                     Gauti kainą
@@ -485,119 +481,6 @@
     </section>
 
     <!-- ═══════════════════════════════════════════ -->
-    <!-- 6. ATSILIEPIMAI (Testimonials)              -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="atsiliepimai" class="py-20 lg:py-28 bg-sage-50/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span
-                    class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3">Atsiliepimai</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
-                    Ką sako mūsų klientai
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Testimonial 1 -->
-                <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Nuostabus darbas! Butas po remonto atrodė baisiai, bet po valymo — kaip naujas. Labai
-                        rekomenduoju, profesionalios valytojos."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center">
-                            <span class="text-sage-700 font-bold text-sm">LM</span>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-900 text-sm">Laura M.</p>
-                            <p class="text-gray-400 text-xs">Vilnius</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Naudoju Airbnb valymo paslaugą jau 3 mėnesius. Visada laiku, visada švariai. Svečiai nuolat
-                        giria švarą — tai pagerina mano reitingą!"
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-softblue-100 rounded-full flex items-center justify-center">
-                            <span class="text-softblue-400 font-bold text-sm">TK</span>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-900 text-sm">Tomas K.</p>
-                            <p class="text-gray-400 text-xs">Vilnius, Airbnb šeimininkas</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Su mažais vaikais namuose tiesiog nespėju tvarkyti. Savaitinis valymas — geriausias mano
-                        sprendimas. Visada ta pati valytoja, labai malonu."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-beige-200 rounded-full flex items-center justify-center">
-                            <span class="text-amber-700 font-bold text-sm">IP</span>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-900 text-sm">Ieva P.</p>
-                            <p class="text-gray-400 text-xs">Vilnius, mama</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 4 -->
-                <div class="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                    <div class="flex gap-1 mb-4">
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                        <i data-lucide="star" class="w-5 h-5 text-amber-400 fill-amber-400"></i>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        „Biuro valymas kas savaitę — tvarkinga darbo aplinka motyvuoja komandą. Puikus kainos ir kokybės
-                        santykis. Patogus mokėjimas."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sage-100 rounded-full flex items-center justify-center">
-                            <span class="text-sage-700 font-bold text-sm">MV</span>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-gray-900 text-sm">Marius V.</p>
-                            <p class="text-gray-400 text-xs">Vilnius, įmonės vadovas</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
     <!-- 7. UŽKLAUSA / FORMA + CONTACTS              -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="kontaktai" class="py-20 lg:py-28 bg-white">
@@ -771,8 +654,6 @@
                                 veikia</a></li>
                         <li><a href="#kodel-mes" class="text-gray-400 hover:text-sage-400 transition-colors">Kodėl
                                 mes</a></li>
-                        <li><a href="#atsiliepimai"
-                                class="text-gray-400 hover:text-sage-400 transition-colors">Atsiliepimai</a></li>
                     </ul>
                 </div>
 
