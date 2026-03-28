@@ -106,6 +106,18 @@ textarea:focus {
     background: #4A7043;
 }
 
+/* ── Language toggle button ── */
+#lang-toggle,
+#lang-toggle-mobile {
+    cursor: pointer;
+    user-select: none;
+}
+
+#lang-toggle:active,
+#lang-toggle-mobile:active {
+    transform: scale(0.95);
+}
+
 /* ── Alpine x-collapse transition ── */
 [x-collapse] {
     overflow: hidden;
