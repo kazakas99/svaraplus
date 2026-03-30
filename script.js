@@ -103,6 +103,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
 });
 
+// ── Subtle hero parallax on scroll ──
+document.addEventListener('DOMContentLoaded', () => {
+    const heroBg = document.getElementById('hero-bg');
+    if (heroBg) {
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.scrollY;
+                    if (scrolled < window.innerHeight) {
+                        heroBg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px) scale(1.05)';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
+});
+
+// ── Magnetic button effect on CTA buttons ──
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btn-magnetic, .hero-cta a').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+            btn.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            setTimeout(() => { btn.style.transition = ''; }, 400);
+        });
+    });
+});
+
+// ── Tilt effect on service cards ──
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#paslaugos .grid > div:not(:last-child)').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = 'perspective(800px) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg) translateY(-4px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            setTimeout(() => { card.style.transition = ''; }, 600);
+        });
+    });
+});
+
 // ── Scroll-triggered reveal animations ──
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -191,7 +245,11 @@ document.addEventListener('DOMContentLoaded', () => {
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Add small random delay (20-80ms) for organic stagger feel
+                    const randomDelay = 20 + Math.random() * 60;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, randomDelay);
                     observer.unobserve(entry.target);
                 }
             });

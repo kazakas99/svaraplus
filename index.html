@@ -9,7 +9,7 @@
     <meta name="keywords"
         content="valymas, butų valymas, namų valymas, Airbnb valymas, generalinis valymas, reguliarus valymas, Vilnius">
     <title>ŠvaraPlus — Profesionalios valymo paslaugos Vilniuje</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="components/favicon.png">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -155,22 +155,26 @@
         <!-- Background image -->
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80"
-                alt="Švarus, tvarkingas kambarys" class="w-full h-full object-cover">
+                alt="Švarus, tvarkingas kambarys" class="w-full h-full object-cover parallax-layer" id="hero-bg">
             <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/40"></div>
         </div>
+
+        <!-- Floating decorative blobs -->
+        <div class="gradient-blob blob-animate w-96 h-96 bg-sage-400 top-20 -right-48" style="position:absolute;"></div>
+        <div class="gradient-blob blob-animate w-72 h-72 bg-green-400 bottom-20 left-10" style="position:absolute;animation-delay:5s;"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
             <div class="max-w-2xl">
                 <!-- Badge -->
                 <div
-                    class="hero-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+                    class="hero-badge inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6 hover-wiggle">
                     <i data-lucide="map-pin" class="w-4 h-4"></i>
                     Vilnius
                 </div>
 
                 <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-6">
                     <span data-i18n="hero.title1">Švara jūsų namuose —</span>
-                    <span class="text-sage-300" data-i18n="hero.title2">be rūpesčių</span>
+                    <span class="text-sage-300 squiggle-underline" data-i18n="hero.title2">be rūpesčių</span>
                 </h1>
 
                 <p class="hero-text text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-xl" data-i18n="hero.subtitle">
@@ -218,8 +222,12 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- 2. PASLAUGOS (Services)                     -->
     <!-- ═══════════════════════════════════════════ -->
-    <section id="paslaugos" class="py-20 lg:py-28 bg-sage-50/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="paslaugos" class="py-20 lg:py-28 bg-sage-50/50 wave-divider relative overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="gradient-blob blob-animate w-80 h-80 bg-sage-300 -top-20 -left-40" style="position:absolute;"></div>
+        <div class="gradient-blob blob-animate w-64 h-64 bg-beige-300 bottom-10 -right-32" style="position:absolute;animation-delay:8s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Section header -->
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3" data-i18n="services.label">Mūsų
@@ -237,7 +245,7 @@
 
                 <!-- Card 1: Generalinis valymas -->
                 <div
-                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 card-tilt-1">
                     <div
                         class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
                         <i data-lucide="home"
@@ -257,7 +265,7 @@
 
                 <!-- Card 2: Airbnb / trumpalaikė nuoma -->
                 <div
-                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1 relative overflow-hidden">
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 card-tilt-2 relative overflow-hidden">
                     <div class="absolute top-4 right-4 bg-sage-500 text-white text-xs font-bold px-3 py-1 rounded-full" data-i18n="services.popular">
                         Populiaru</div>
                     <div
@@ -280,7 +288,7 @@
 
                 <!-- Card 4: Reguliarus valymas -->
                 <div
-                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 hover:-translate-y-1">
+                    class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-sage-200 card-tilt-3">
                     <div
                         class="w-14 h-14 bg-sage-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sage-500 transition-colors">
                         <i data-lucide="calendar-check"
@@ -322,8 +330,11 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- 3. KAIP VEIKIA (How it works)               -->
     <!-- ═══════════════════════════════════════════ -->
-    <section id="kaip-veikia" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="kaip-veikia" class="py-20 lg:py-28 bg-white wave-divider-sage relative overflow-hidden">
+        <!-- Decorative blob -->
+        <div class="gradient-blob blob-animate w-96 h-96 bg-softblue-200 top-40 -right-48" style="position:absolute;animation-delay:3s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Section header -->
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="inline-block text-sage-500 font-semibold text-sm tracking-wider uppercase mb-3" data-i18n="how.label">Paprastas
@@ -339,7 +350,7 @@
             <!-- Steps -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
                 <!-- Step 1 -->
-                <div class="text-center relative">
+                <div class="text-center relative step-connector">
                     <div
                         class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="message-circle" class="w-8 h-8 text-sage-600"></i>
@@ -352,7 +363,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="text-center relative">
+                <div class="text-center relative step-connector">
                     <div
                         class="w-16 h-16 bg-beige-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="calculator" class="w-8 h-8 text-amber-600"></i>
@@ -365,7 +376,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="text-center relative">
+                <div class="text-center relative step-connector">
                     <div
                         class="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mx-auto mb-5 relative">
                         <i data-lucide="sparkles" class="w-8 h-8 text-sage-600"></i>
@@ -411,14 +422,18 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- 4. KODĖL RINKTIS MUS (Why choose us)        -->
     <!-- ═══════════════════════════════════════════ -->
-    <section id="kodel-mes" class="py-20 lg:py-28 bg-sage-50/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="kodel-mes" class="py-20 lg:py-28 bg-sage-50/50 wave-divider relative overflow-hidden">
+        <!-- Decorative blob -->
+        <div class="gradient-blob blob-animate w-72 h-72 bg-sage-300 -bottom-20 -left-36" style="position:absolute;animation-delay:6s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <!-- Left: Image -->
                 <div class="relative">
+                    <div class="absolute -inset-3 bg-sage-200/40 blob-shape blob-animate -z-10"></div>
                     <img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80"
                         alt="Profesionali valytoja darbo metu"
-                        class="rounded-2xl shadow-xl w-full object-cover aspect-[4/3]">
+                        class="rounded-2xl shadow-xl w-full object-cover aspect-[4/3]" style="border-radius: 16px 32px 20px 36px;">
                 </div>
 
                 <!-- Right: Content -->
@@ -485,8 +500,11 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- 7. UŽKLAUSA / FORMA + CONTACTS              -->
     <!-- ═══════════════════════════════════════════ -->
-    <section id="kontaktai" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="kontaktai" class="py-20 lg:py-28 bg-white wave-divider-sage relative overflow-hidden">
+        <!-- Decorative blob -->
+        <div class="gradient-blob blob-animate w-80 h-80 bg-beige-200 -top-20 -right-40" style="position:absolute;animation-delay:10s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 <!-- Left: Quote Calculator -->
                 <div x-data="quoteCalc()">
@@ -793,18 +811,15 @@
     <!-- ═══════════════════════════════════════════ -->
     <a href="https://wa.me/37063013887?text=Sveiki%2C%20noriu%20užsisakyti%20valymo%20paslaugą" target="_blank"
         rel="noopener noreferrer"
-        class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:scale-110 group"
+        class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group"
         aria-label="Rašyti WhatsApp">
-        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        <!-- Tooltip -->
-        <span
-            class="absolute right-20 bg-white text-gray-800 text-sm font-medium px-4 py-2 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-            data-i18n="whatsappTooltip">
-            Rašykite mums! 💬
-        </span>
+        <span class="wa-tooltip bg-white text-gray-800 text-sm font-semibold px-4 py-2 rounded-full shadow-lg" data-i18n="whatsappTooltip">Rašykite mums! 💬</span>
+        <div class="w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </div>
     </a>
 
     <!-- Custom JS -->

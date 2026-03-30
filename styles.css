@@ -28,6 +28,167 @@ body {
 }
 
 /* ══════════════════════════════════════════════
+   Organic texture & life
+   ══════════════════════════════════════════════ */
+
+/* ── Subtle film grain overlay ── */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── Organic blob shapes ── */
+.blob-shape {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.blob-shape-2 {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    position: absolute;
+    pointer-events: none;
+}
+
+@keyframes blob-morph {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    25%      { border-radius: 58% 42% 55% 45% / 56% 45% 55% 44%; }
+    50%      { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+    75%      { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+}
+
+.blob-animate {
+    animation: blob-morph 20s ease-in-out infinite;
+}
+
+/* ── Wavy section dividers ── */
+.wave-divider {
+    position: relative;
+    overflow: hidden;
+}
+.wave-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q 150 0 300 30 T 600 30 T 900 30 T 1200 30 V0 H0z' fill='white'/%3E%3C/svg%3E") no-repeat center;
+    background-size: cover;
+    z-index: 1;
+}
+.wave-divider-sage::before {
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q 150 0 300 30 T 600 30 T 900 30 T 1200 30 V0 H0z' fill='%23fafcfa'/%3E%3C/svg%3E") no-repeat center;
+    background-size: cover;
+}
+
+/* ── Squiggly underline on key headings ── */
+.squiggle-underline {
+    position: relative;
+    display: inline;
+}
+.squiggle-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 8px;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4 Q 12.5 0 25 4 T 50 4 T 75 4 T 100 4' fill='none' stroke='%234A7043' stroke-width='2' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
+    background-size: 50px 8px;
+}
+
+/* ── Hand-drawn style borders ── */
+.organic-border {
+    border-radius: 12px 24px 16px 28px / 28px 12px 24px 16px;
+}
+
+/* ── Slight card tilts for personality ── */
+.card-tilt-1 { transform: rotate(-0.5deg); }
+.card-tilt-2 { transform: rotate(0.3deg); }
+.card-tilt-3 { transform: rotate(-0.2deg); }
+.card-tilt-1:hover, .card-tilt-2:hover, .card-tilt-3:hover {
+    transform: rotate(0deg) translateY(-6px) !important;
+}
+
+/* ── Magnetic button effect ── */
+.btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Playful bouncy hover ── */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0); }
+    25%  { transform: rotate(-2deg); }
+    75%  { transform: rotate(2deg); }
+}
+.hover-wiggle:hover {
+    animation: wiggle 0.4s ease-in-out;
+}
+
+/* ── Parallax hero layers ── */
+.parallax-layer {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* ── Organic gradient blobs in background ── */
+.gradient-blob {
+    filter: blur(80px);
+    opacity: 0.12;
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Handwritten-feel marker highlight ── */
+.marker-highlight {
+    background: linear-gradient(104deg, rgba(74,112,67,0) 0.9%, rgba(74,112,67,0.15) 2.4%, rgba(74,112,67,0.12) 5.8%, rgba(74,112,67,0.15) 93%, rgba(74,112,67,0.08) 96%, rgba(74,112,67,0) 98%);
+    padding: 0.15em 0.3em;
+    border-radius: 4px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+/* ── Subtle text shadow for hero depth ── */
+.hero-title {
+    text-shadow: 0 2px 30px rgba(0,0,0,0.15);
+}
+
+/* ── Step connector arrows (between how-it-works steps) ── */
+@media (min-width: 1024px) {
+    .step-connector {
+        position: relative;
+    }
+    .step-connector::after {
+        content: '';
+        position: absolute;
+        top: 32px;
+        right: -16px;
+        width: 28px;
+        height: 2px;
+        background: repeating-linear-gradient(90deg, #a8c2a5, #a8c2a5 4px, transparent 4px, transparent 8px);
+    }
+}
+
+/* ── Floating badges with personality ── */
+@keyframes float-rotate {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-10px) rotate(1deg); }
+}
+.float-badge {
+    animation: float-rotate 5s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════════
    Scroll-triggered reveal animations
    ══════════════════════════════════════════════ */
 
@@ -136,32 +297,41 @@ body {
    Micro-interactions & polish
    ══════════════════════════════════════════════ */
 
-/* ── Gentle float for decorative elements ── */
+/* ── Gentle float for decorative elements (organic, uneven) ── */
 @keyframes gentle-float {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-8px); }
+    0%   { transform: translateY(0) rotate(0deg); }
+    33%  { transform: translateY(-6px) rotate(0.5deg); }
+    66%  { transform: translateY(-3px) rotate(-0.3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
 }
 .float-gentle {
-    animation: gentle-float 4s ease-in-out infinite;
+    animation: gentle-float 5s ease-in-out infinite;
 }
 
-/* ── Icon pop on card hover ── */
+/* ── Each step icon floats at different speed ── */
+.float-gentle:nth-child(1) { animation-duration: 4.5s; animation-delay: 0s; }
+.float-gentle:nth-child(2) { animation-duration: 5.2s; animation-delay: 0.5s; }
+.float-gentle:nth-child(3) { animation-duration: 4.8s; animation-delay: 1s; }
+.float-gentle:nth-child(4) { animation-duration: 5.5s; animation-delay: 1.5s; }
+
+/* ── Icon pop on card hover (bouncy spring) ── */
 .group:hover .icon-pop {
-    transform: scale(1.12) rotate(-3deg);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(1.15) rotate(-5deg);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .icon-pop {
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Card lift (enhanced hover) ── */
+/* ── Card lift (organic hover with slight rotation) ── */
 .card-lift {
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card-lift:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px -12px rgba(74, 112, 67, 0.15);
+    transform: translateY(-8px) rotate(0.3deg);
+    box-shadow: 0 25px 50px -12px rgba(74, 112, 67, 0.2),
+                0 0 0 1px rgba(74, 112, 67, 0.05);
 }
 
 /* ── Section divider line reveal ── */
@@ -226,21 +396,21 @@ body {
     }
 }
 
-/* ── WhatsApp pulse ring ── */
-@keyframes wa-pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-    }
-    70% {
-        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
+/* ── WhatsApp button ── */
+.fixed[aria-label="Rašyti WhatsApp"] {
+    animation: none;
 }
 
-.fixed[aria-label="Rašyti WhatsApp"] {
-    animation: wa-pulse 2s infinite;
+/* ── WhatsApp tooltip slides in ── */
+.wa-tooltip {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+.group:hover .wa-tooltip {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* ── Hero parallax-lite overlay ── */
@@ -254,11 +424,14 @@ body {
     will-change: transform;
 }
 
-/* ── Form focus glow ── */
+/* ── Form focus glow (organic, warm) ── */
 input:focus,
 select:focus,
 textarea:focus {
-    box-shadow: 0 0 0 3px rgba(74, 112, 67, 0.15);
+    box-shadow: 0 0 0 3px rgba(74, 112, 67, 0.15),
+                0 0 20px rgba(74, 112, 67, 0.06);
+    transform: scale(1.005);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ── Service card icon transition ── */
@@ -267,22 +440,22 @@ textarea:focus {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* ── Scrollbar styling ── */
+/* ── Scrollbar styling (slimmer, organic) ── */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f4f7f4;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #a8c2a5;
-    border-radius: 5px;
+    background: linear-gradient(180deg, #a8c2a5, #7da479);
+    border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4A7043;
+    background: linear-gradient(180deg, #7da479, #4A7043);
 }
 
 /* ── Language toggle button ── */
