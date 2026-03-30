@@ -306,7 +306,7 @@ const translations = {
         'why.p3.title': 'Before & After nuotraukos',
         'why.p3.desc': 'Kiekvieno valymo metu fotografuojame prieš ir po — matote tikslų rezultatą ir kokybės garantiją.',
         'why.p4.title': 'Greitas atsakymas',
-        'why.p4.desc': 'Rašykite bet kuriuo metu — atsakome per 1 valandą ir suderinime viską greitai bei patogiai.',
+        'why.p4.desc': 'Rašykite bet kuriuo metu — atsakome per 1 valandą ir suderiname viską greitai bei patogiai.',
         'contact.label': 'Susisiekite',
         'contact.title': 'Gaukite nemokamą įvertinimą',
         'contact.subtitle': 'Užpildykite formą ir atsakysime per 1 valandą su tikslia kaina.',
