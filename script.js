@@ -78,23 +78,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
 });
 
-// ── Scroll-triggered fade-in animations ──
+// ── Scroll-triggered reveal animations ──
 document.addEventListener('DOMContentLoaded', () => {
-    // Add .fade-in-up class to animatable elements
-    const selectors = [
-        '#paslaugos .grid > div',
-        '#kaip-veikia .grid > div',
-        '#kodel-mes .flex.gap-4',
-        '#atsiliepimai .grid > div',
-    ];
 
-    selectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => {
-            el.classList.add('fade-in-up');
-        });
+    // ── Apply animation classes per section context ──
+
+    // Section headers get blur-in reveal
+    document.querySelectorAll(
+        '#paslaugos .text-center.max-w-2xl,' +
+        '#kaip-veikia .text-center.max-w-2xl,' +
+        '#kontaktai > div > div > span:first-child,' +
+        '#kontaktai > div > div > h2,' +
+        '#kontaktai > div > div > p.text-gray-500'
+    ).forEach(el => el.classList.add('blur-in'));
+
+    // Section header decorative line
+    document.querySelectorAll(
+        '#paslaugos .text-center.max-w-2xl,' +
+        '#kaip-veikia .text-center.max-w-2xl'
+    ).forEach(header => {
+        const lineEl = document.createElement('span');
+        lineEl.classList.add('line-reveal');
+        // Insert after the subtitle
+        const subtitle = header.querySelector('p');
+        if (subtitle) {
+            subtitle.after(lineEl);
+        }
     });
 
-    // Intersection Observer
+    // Service cards — scale-in + card-lift
+    document.querySelectorAll('#paslaugos .grid > div').forEach(el => {
+        el.classList.add('scale-in', 'card-lift');
+    });
+
+    // Service card icons — icon-pop
+    document.querySelectorAll('#paslaugos .grid > div .w-14').forEach(el => {
+        el.classList.add('icon-pop');
+    });
+
+    // How-it-works steps — fade-in-up
+    document.querySelectorAll('#kaip-veikia .grid > div').forEach(el => {
+        el.classList.add('fade-in-up');
+    });
+
+    // How-it-works step icons — gentle float
+    document.querySelectorAll('#kaip-veikia .grid > div .w-16').forEach(el => {
+        el.classList.add('float-gentle');
+    });
+
+    // Payment box — shimmer accent
+    const paymentBox = document.querySelector('#kaip-veikia .bg-beige-50');
+    if (paymentBox) {
+        paymentBox.classList.add('fade-in-up', 'shimmer-box');
+    }
+
+    // Why us — image slides from left, content slides from right
+    const whyImage = document.querySelector('#kodel-mes .grid > div:first-child');
+    const whyContent = document.querySelector('#kodel-mes .grid > div:last-child');
+    if (whyImage) whyImage.classList.add('fade-in-left');
+    if (whyContent) whyContent.classList.add('fade-in-right');
+
+    // Why us — individual benefit rows
+    document.querySelectorAll('#kodel-mes .flex.gap-4').forEach(el => {
+        el.classList.add('fade-in-up');
+    });
+
+    // Why us — benefit icons get icon-pop
+    document.querySelectorAll('#kodel-mes .flex.gap-4 .w-12').forEach(el => {
+        el.classList.add('icon-pop');
+    });
+
+    // Contact section — form slides left, info slides right
+    const contactForm = document.querySelector('#kontaktai .grid > div:first-child');
+    const contactInfo = document.querySelector('#kontaktai .grid > div:last-child');
+    if (contactForm) contactForm.classList.add('fade-in-left');
+    if (contactInfo) contactInfo.classList.add('fade-in-right');
+
+    // Footer columns — fade-in-up
+    document.querySelectorAll('footer .grid > div').forEach(el => {
+        el.classList.add('fade-in-up');
+    });
+
+    // ── Intersection Observer (triggers all animation classes) ──
+    const animatedClasses = ['fade-in-up', 'fade-in-left', 'fade-in-right', 'scale-in', 'blur-in', 'line-reveal'];
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
@@ -105,13 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         },
         {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.12,
+            rootMargin: '0px 0px -60px 0px'
         }
     );
 
-    document.querySelectorAll('.fade-in-up').forEach(el => {
-        observer.observe(el);
+    animatedClasses.forEach(cls => {
+        document.querySelectorAll('.' + cls).forEach(el => {
+            observer.observe(el);
+        });
     });
 });
 

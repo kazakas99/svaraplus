@@ -27,25 +27,204 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Scroll-triggered fade-in animation ── */
+/* ══════════════════════════════════════════════
+   Scroll-triggered reveal animations
+   ══════════════════════════════════════════════ */
+
+/* ── Fade in up ── */
 .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Staggered children */
-.fade-in-up.visible:nth-child(1) { transition-delay: 0ms; }
-.fade-in-up.visible:nth-child(2) { transition-delay: 100ms; }
-.fade-in-up.visible:nth-child(3) { transition-delay: 200ms; }
-.fade-in-up.visible:nth-child(4) { transition-delay: 300ms; }
-.fade-in-up.visible:nth-child(5) { transition-delay: 400ms; }
-.fade-in-up.visible:nth-child(6) { transition-delay: 500ms; }
+/* ── Fade in from left ── */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Fade in from right ── */
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Scale in (cards) ── */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ── Blur reveal (section headers) ── */
+.blur-in {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.blur-in.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* ── Stagger delays (universal) ── */
+.stagger-children.visible > :nth-child(1),
+.fade-in-up.visible:nth-child(1),
+.scale-in.visible:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.visible > :nth-child(2),
+.fade-in-up.visible:nth-child(2),
+.scale-in.visible:nth-child(2) { transition-delay: 120ms; }
+.stagger-children.visible > :nth-child(3),
+.fade-in-up.visible:nth-child(3),
+.scale-in.visible:nth-child(3) { transition-delay: 240ms; }
+.stagger-children.visible > :nth-child(4),
+.fade-in-up.visible:nth-child(4),
+.scale-in.visible:nth-child(4) { transition-delay: 360ms; }
+.stagger-children.visible > :nth-child(5),
+.fade-in-up.visible:nth-child(5),
+.scale-in.visible:nth-child(5) { transition-delay: 480ms; }
+.stagger-children.visible > :nth-child(6),
+.fade-in-up.visible:nth-child(6),
+.scale-in.visible:nth-child(6) { transition-delay: 600ms; }
+
+/* ══════════════════════════════════════════════
+   Hero entrance animations
+   ══════════════════════════════════════════════ */
+@keyframes hero-fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.hero-badge   { animation: hero-fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+.hero-title   { animation: hero-fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+.hero-text    { animation: hero-fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; }
+.hero-cta     { animation: hero-fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both; }
+.hero-trust   { animation: hero-fadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.85s both; }
+
+/* ══════════════════════════════════════════════
+   Micro-interactions & polish
+   ══════════════════════════════════════════════ */
+
+/* ── Gentle float for decorative elements ── */
+@keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+.float-gentle {
+    animation: gentle-float 4s ease-in-out infinite;
+}
+
+/* ── Icon pop on card hover ── */
+.group:hover .icon-pop {
+    transform: scale(1.12) rotate(-3deg);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.icon-pop {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Card lift (enhanced hover) ── */
+.card-lift {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(74, 112, 67, 0.15);
+}
+
+/* ── Section divider line reveal ── */
+@keyframes line-grow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+.line-reveal {
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #4A7043;
+    border-radius: 2px;
+    transform-origin: left;
+    transform: scaleX(0);
+    margin: 0 auto 1rem;
+}
+.line-reveal.visible {
+    animation: line-grow 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+/* ── Payment box shimmer accent ── */
+@keyframes shimmer-slide {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+.shimmer-box {
+    position: relative;
+    overflow: hidden;
+}
+.shimmer-box::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+    animation: shimmer-slide 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   Reduced motion — respect user preference
+   ══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up, .fade-in-left, .fade-in-right,
+    .scale-in, .blur-in,
+    .hero-badge, .hero-title, .hero-text,
+    .hero-cta, .hero-trust {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+    .line-reveal {
+        transform: scaleX(1) !important;
+        animation: none !important;
+    }
+    .float-gentle {
+        animation: none !important;
+    }
+}
 
 /* ── WhatsApp pulse ring ── */
 @keyframes wa-pulse {
