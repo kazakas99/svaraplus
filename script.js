@@ -10,56 +10,81 @@ function app() {
     return {
         scrolled: false,
         mobileMenu: false,
+    };
+}
 
-        // Form
-        form: {
-            name: '',
-            phone: '',
-            service: '',
-            city: '',
-            message: ''
+// ── Quote Calculator Alpine component ──
+function quoteCalc() {
+    return {
+        serviceType: '',
+        aptSize: '',
+        extras: { oven: false, fridge: false, windows: false },
+        windowCount: 1,
+
+        // Regular cleaning prices
+        regularPrices: {
+            '30': 40, '30-40': 45, '40-50': 50,
+            '60-70': 60, '70-80': 65, '80-100': 70, '100+': 75
         },
-        formSubmitting: false,
-        formSubmitted: false,
+        // Airbnb prices
+        airbnbPrices: {
+            'a25': 30, 'a25-40': 35, 'a40-60': 40, 'a60-80': 50
+        },
 
-        submitForm() {
-            // Basic client-side validation
-            if (!this.form.name || !this.form.phone || !this.form.service || !this.form.city) {
-                return;
-            }
+        get basePrice() {
+            if (this.serviceType === 'regular') return this.regularPrices[this.aptSize] || 0;
+            if (this.serviceType === 'airbnb') return this.airbnbPrices[this.aptSize] || 0;
+            return 0;
+        },
 
-            this.formSubmitting = true;
+        get extrasPrice() {
+            if (this.serviceType !== 'regular') return 0;
+            let total = 0;
+            if (this.extras.oven) total += 15;
+            if (this.extras.fridge) total += 10;
+            if (this.extras.windows) total += 15 * (this.windowCount || 1);
+            return total;
+        },
 
-            // Simulate form submission (replace with real endpoint)
-            setTimeout(() => {
-                this.formSubmitting = false;
-                this.formSubmitted = true;
+        get totalPrice() {
+            return this.basePrice + this.extrasPrice;
+        },
 
-                // Build WhatsApp message as fallback
-                const msg = encodeURIComponent(
-                    `Sveiki! Norėčiau užsakyti valymo paslaugą.\n\n` +
-                    `Vardas: ${this.form.name}\n` +
-                    `Telefonas: ${this.form.phone}\n` +
-                    `Paslauga: ${this.form.service}\n` +
-                    `Miestas: ${this.form.city}\n` +
-                    `Papildoma info: ${this.form.message || 'Nėra'}`
-                );
+        whatsappLink() {
+            const sizeLabels = {
+                '30': 'iki 30 m²', '30-40': '30–40 m²', '40-50': '40–50 m²',
+                '60-70': '60–70 m²', '70-80': '70–80 m²', '80-100': '80–100 m²', '100+': '100+ m²',
+                'a25': 'iki 25 m²', 'a25-40': '25–40 m²', 'a40-60': '40–60 m²', 'a60-80': '60–80 m²'
+            };
+            const typeLabel = this.serviceType === 'regular' ? 'Reguliarus valymas' : 'Airbnb valymas';
+            const sizeLabel = sizeLabels[this.aptSize] || '';
+            let extrasArr = [];
+            if (this.extras.oven) extrasArr.push('Orkaitė (+15 €)');
+            if (this.extras.fridge) extrasArr.push('Šaldytuvas (+10 €)');
+            if (this.extras.windows) extrasArr.push('Langai ×' + this.windowCount + ' (+' + (15 * this.windowCount) + ' €)');
+            const extrasStr = extrasArr.length ? extrasArr.join(', ') : 'Nėra';
 
-                // Open WhatsApp with pre-filled message
-                window.open(`https://wa.me/37063013887?text=${msg}`, '_blank');
+            const msg = encodeURIComponent(
+                `Sveiki! Norėčiau užsakyti valymo paslaugą.\n\n` +
+                `Paslauga: ${typeLabel}\n` +
+                `Plotas: ${sizeLabel}\n` +
+                `Papildomos: ${extrasStr}\n` +
+                `Preliminari kaina: nuo ${this.totalPrice} €`
+            );
+            return `https://wa.me/37063013887?text=${msg}`;
+        },
 
-                // Reset form after delay
-                setTimeout(() => {
-                    this.formSubmitted = false;
-                    this.form = {
-                        name: '',
-                        phone: '',
-                        service: '',
-                        city: '',
-                        message: ''
-                    };
-                }, 4000);
-            }, 1200);
+        init() {
+            // Reset size when service type changes
+            this.$watch('serviceType', () => {
+                this.aptSize = '';
+                this.extras = { oven: false, fridge: false, windows: false };
+                this.windowCount = 1;
+                // Re-init lucide icons for newly shown elements
+                this.$nextTick(() => {
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                });
+            });
         }
     };
 }
@@ -288,30 +313,30 @@ const translations = {
         'why.p4.title': 'Fast response',
         'why.p4.desc': 'Write at any time — we respond within 1 hour and arrange everything quickly and conveniently.',
 
-        // Contact form
+        // Contact / Calculator
         'contact.label': 'Contact us',
-        'contact.title': 'Get a free estimate',
-        'contact.subtitle': 'Fill out the form and we will respond within 1 hour with an exact price.',
+        'contact.title': 'Get an instant quote',
+        'contact.subtitle': 'Select a service, area size and extras — the price updates automatically.',
         'contact.directTitle': 'Contact us directly',
         'contact.phone': 'Phone',
 
-        // Form
-        'form.name': 'Name *',
-        'form.namePh': 'Your name',
-        'form.phone': 'Phone *',
-        'form.phonePh': '+370 6XX XXXXX',
-        'form.service': 'Service *',
-        'form.servicePh': 'Select a service',
-        'form.serviceGen': 'Deep cleaning',
-        'form.serviceAirbnb': 'Airbnb cleaning',
-        'form.serviceReg': 'Weekly / monthly cleaning',
-        'form.city': 'City *',
-        'form.cityPh': 'Select a city',
-        'form.message': 'Additional information',
-        'form.messagePh': 'Area size, preferences, date...',
-        'form.submit': 'Get a quote',
-        'form.sending': 'Sending...',
-        'form.sent': 'Sent! We will contact you soon.',
+        // Quote calculator
+        'calc.serviceType': 'Service type *',
+        'calc.regular': 'Regular cleaning',
+        'calc.airbnb': 'Airbnb cleaning',
+        'calc.aptSize': 'Apartment size *',
+        'calc.selectSize': 'Select size',
+        'calc.extras': 'Extra services',
+        'calc.oven': 'Oven cleaning',
+        'calc.fridge': 'Fridge cleaning',
+        'calc.windows': 'Window cleaning',
+        'calc.windowsNote': '(15 € / window, larger windows — more)',
+        'calc.windowCount': 'Number of windows',
+        'calc.airbnbNote': 'Price includes bed linen change. Linen must be pre-washed — we do not wash on-site! For deep cleaning, contact us privately.',
+        'calc.deepNote': 'For deep cleaning prices, contact us personally — we adjust based on your needs.',
+        'calc.estimate': 'Estimated price:',
+        'calc.from': 'from',
+        'calc.orderWhatsApp': 'Order via WhatsApp',
 
         // Footer
         'footer.brand': 'Professional cleaning service coordination in Vilnius.',
@@ -377,26 +402,26 @@ const translations = {
         'why.p4.title': 'Greitas atsakymas',
         'why.p4.desc': 'Rašykite bet kuriuo metu — atsakome per 1 valandą ir suderiname viską greitai bei patogiai.',
         'contact.label': 'Susisiekite',
-        'contact.title': 'Gaukite nemokamą įvertinimą',
-        'contact.subtitle': 'Užpildykite formą ir atsakysime per 1 valandą su tikslia kaina.',
+        'contact.title': 'Sužinokite kainą akimirksniu',
+        'contact.subtitle': 'Pasirinkite paslaugą, plotą ir papildomas paslaugas — kaina atsinaujins automatiškai.',
         'contact.directTitle': 'Susisiekite tiesiogiai',
         'contact.phone': 'Telefonas',
-        'form.name': 'Vardas *',
-        'form.namePh': 'Jūsų vardas',
-        'form.phone': 'Telefonas *',
-        'form.phonePh': '+370 6XX XXXXX',
-        'form.service': 'Paslauga *',
-        'form.servicePh': 'Pasirinkite paslaugą',
-        'form.serviceGen': 'Generalinis valymas',
-        'form.serviceAirbnb': 'Airbnb valymas',
-        'form.serviceReg': 'Savaitinis / mėnesinis valymas',
-        'form.city': 'Miestas *',
-        'form.cityPh': 'Pasirinkite miestą',
-        'form.message': 'Papildoma informacija',
-        'form.messagePh': 'Patalpų plotas, pageidavimai, data...',
-        'form.submit': 'Gauti kainą',
-        'form.sending': 'Siunčiama...',
-        'form.sent': 'Išsiųsta! Susisieksime greitai.',
+        'calc.serviceType': 'Paslaugos tipas *',
+        'calc.regular': 'Reguliarus valymas',
+        'calc.airbnb': 'Airbnb valymas',
+        'calc.aptSize': 'Buto plotas *',
+        'calc.selectSize': 'Pasirinkite plotą',
+        'calc.extras': 'Papildomos paslaugos',
+        'calc.oven': 'Orkaitės valymas',
+        'calc.fridge': 'Šaldytuvo valymas',
+        'calc.windows': 'Langų valymas',
+        'calc.windowsNote': '(15 € / langas, dideliam langui — daugiau)',
+        'calc.windowCount': 'Langų skaičius',
+        'calc.airbnbNote': 'Į kainą įeina patalynės keitimas. Patalynė turi būti išskalbta — vietoje neskalbiam! Dėl giluminio valymo susisiekite asmeniškai.',
+        'calc.deepNote': 'Dėl giluminio valymo kainų susisiekite su mumis asmeniškai — patiksliname pagal poreikius.',
+        'calc.estimate': 'Preliminari kaina:',
+        'calc.from': 'nuo',
+        'calc.orderWhatsApp': 'Užsakyti per WhatsApp',
         'footer.brand': 'Profesionalus valymo paslaugų koordinavimas Vilniuje.',
         'footer.links': 'Nuorodos',
         'footer.servicesTitle': 'Paslaugos',
