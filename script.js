@@ -402,6 +402,7 @@ const translations = {
         'footer.servicesTitle': 'Services',
         'footer.contactTitle': 'Contacts',
         'footer.copy': '© 2026 ŠvaraPlus. All rights reserved.',
+        'footer.business': 'Individuali veikla pagal pažymą nr. 1501924 Edvin Katenel LT047044060008303226',
         'footer.privacy': 'Privacy policy',
         'footer.terms': 'Terms of use',
 
@@ -485,6 +486,7 @@ const translations = {
         'footer.servicesTitle': 'Paslaugos',
         'footer.contactTitle': 'Kontaktai',
         'footer.copy': '© 2026 ŠvaraPlus. Visos teisės saugomos.',
+        'footer.business': 'Individuali veikla pagal pažymą nr. 1501924 Edvin Katenel LT047044060008303226',
         'footer.privacy': 'Privatumo politika',
         'footer.terms': 'Naudojimo sąlygos',
         'whatsappTooltip': 'Rašykite mums! 💬',
