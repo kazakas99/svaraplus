@@ -41,7 +41,7 @@ body::before {
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.025;
+    opacity: 0.01;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
@@ -112,11 +112,15 @@ body::before {
 }
 
 /* ── Slight card tilts for personality ── */
-.card-tilt-1 { transform: rotate(-0.5deg); }
-.card-tilt-2 { transform: rotate(0.3deg); }
-.card-tilt-3 { transform: rotate(-0.2deg); }
-.card-tilt-1:hover, .card-tilt-2:hover, .card-tilt-3:hover {
-    transform: rotate(0deg) translateY(-6px) !important;
+.card-tilt-1,
+.card-tilt-2,
+.card-tilt-3 {
+    transform: none;
+}
+.card-tilt-1:hover,
+.card-tilt-2:hover,
+.card-tilt-3:hover {
+    transform: translateY(-4px) !important;
 }
 
 /* ── Magnetic button effect ── */
@@ -131,7 +135,7 @@ body::before {
     75%  { transform: rotate(2deg); }
 }
 .hover-wiggle:hover {
-    animation: wiggle 0.4s ease-in-out;
+    animation: none;
 }
 
 /* ── Parallax hero layers ── */
@@ -142,8 +146,8 @@ body::before {
 
 /* ── Organic gradient blobs in background ── */
 .gradient-blob {
-    filter: blur(80px);
-    opacity: 0.12;
+    filter: blur(90px);
+    opacity: 0.08;
     position: absolute;
     pointer-events: none;
     z-index: 0;
@@ -428,10 +432,10 @@ body::before {
 input:focus,
 select:focus,
 textarea:focus {
-    box-shadow: 0 0 0 3px rgba(74, 112, 67, 0.15),
-                0 0 20px rgba(74, 112, 67, 0.06);
-    transform: scale(1.005);
-    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 0 3px rgba(74, 112, 67, 0.2),
+                0 0 0 1px rgba(74, 112, 67, 0.25);
+    transform: none;
+    transition: all 0.2s ease;
 }
 
 /* ── Service card icon transition ── */
@@ -484,6 +488,37 @@ body.nav-open {
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* ── Clear keyboard accessibility ── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(74, 112, 67, 0.45);
+    outline-offset: 2px;
+    border-radius: 10px;
+}
+
+section {
+    scroll-margin-top: 88px;
+}
+
+@media (max-width: 768px) {
+    .hero-cta {
+        gap: 0.75rem;
+    }
+
+    .hero-cta a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-trust {
+        gap: 0.75rem 1rem;
+    }
 }
 
 /* ── Print styles ── */
